@@ -7,6 +7,7 @@ import {
 import Home from './Components/Home/Home';
 import Admin from './Components/Admin/Admin';
 import About from './Components/About/About';
+import Delete from './Components/Delete/Delete';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/delete">
+            <Delete />
           </Route>
         </Switch>
     </Router>

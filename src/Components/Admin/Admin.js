@@ -1,12 +1,27 @@
 import React from 'react';
-import NavBar from '../NabBar/NavBar';
+import BlogPost from '../BlogPost/BlogPost';
+import SideBar from '../SideBar/SideBar';
+import './Admin.css'
 
 const Admin = () => {
     return (
-        <div>
-            <NavBar />
-            <h1>Admin</h1>
+        <>
+            
+        <div className="d-flex admin__container">
+            <div className="col-md-4">
+                <SideBar/>
+
+            </div>
+            <div className="col-md-8">
+                <BlogPost/>
+
+            </div>
+            
+
         </div>
+            
+        
+        </>
     );
 };
 
