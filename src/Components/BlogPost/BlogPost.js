@@ -11,17 +11,18 @@ const BlogPost = () => {
                     <Form.Control type="text" placeholder="Title" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Upload Image </Form.Label>
+                    <Form.Label>Upload Image :</Form.Label>
                     <Form.Control type="file" placeholder="Upload Image" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Small Description </Form.Label>
+                    <Form.Label>Middle Description </Form.Label>
                     <Form.Control as="textarea" rows={4} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Full Description </Form.Label>
                     <Form.Control as="textarea" rows={4} />
                 </Form.Group>
+                <button className="btn btn-primary">Submit</button>
             </Form>
 
         </div>

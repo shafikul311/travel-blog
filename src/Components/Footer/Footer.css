@@ -1,4 +1,18 @@
 .footer__main {
     background-color: #2c3e50;
     color: white;
+    padding-top: 50px;
+}
+
+.footer__first {
+    text-align: center;
+    justify-content: center;
+
+}
+.footer__last {
+    text-align: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+
 }
