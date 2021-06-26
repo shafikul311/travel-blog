@@ -13,22 +13,21 @@ const BlogPost = () => {
       name: data.name,
       description: data.description,
       image: imageURL,
+      time: new Date(),
     };
     console.log( blogData)
 
-    // const url = `http://localhost:3080/blog`;
-    // fetch(url, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(serviceData),
-    // }).then((res) => res.json());
+    const url = `http://localhost:3080/post`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(blogData),
+    }).then((res) => res.json()
+    );
+   
   }
-
-
-
-
 
 
   const handelImageSubmit = event => {

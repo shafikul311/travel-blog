@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className="footer__first">
                     <h1>Follow Us </h1>
                    <div className="m-3 d-flex justify-content-center">
-                       <div className="m-2"><FacebookIcon src="#"/> Facebook</div>
+                       <a href="https://www.facebook.com/profile.php?id=100007512614005" target="_blank" rel="noreferrer" className="m-2"><FacebookIcon src="#"/> Facebook</a>
                        <div className="m-2"><TwitterIcon/> Twitter</div>
                        <div className="m-2"> <InstagramIcon/>Instagram</div>
                    </div>

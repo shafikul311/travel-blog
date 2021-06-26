@@ -1,77 +1,74 @@
-import React from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
-import google from '../../Images/google.png'
-import firebase from "firebase/app";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import "firebase/auth";
-import firebaseConfig from '../firebase.config';
-import { useContext } from 'react';
-import { UserContext } from '../../../App';
-
+import { useContext } from "react";
+import { UserContext } from "../../../App";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  let history = useHistory();
+  let location = useLocation();
 
-    const [loggedInUser ,setLoggedInUser] = useContext(UserContext);
-    let history = useHistory();
-    let location = useLocation();
-  
-    let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: "/" } };
 
-    if (firebase.apps.length === 0) {
-        firebase.initializeApp(firebaseConfig);
-      }
-      
-    const provider = new firebase.auth.GoogleAuthProvider();
-    const handleGoogleSignIn = ()=> {
+ 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-        firebase.auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-            var user = result.user;
-            // console.log(user)
-            const { displayName, email } = result.user;
-            const signInUser = { name: displayName, email };
-            console.log(signInUser)
-        
-            setLoggedInUser(signInUser);
-            history.replace(from);
-          // ...
-        }).catch((error) => {
+  const onSubmit = (data) => {
+    const customData = {
+      email: data.email,
+      password: data.password,
+    };
+   
 
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            var email = error.email;
-            var credential = error.credential;
-            console.log(errorCode , errorMessage,email , credential)
-         
-        });
-      
+    const url = `http://localhost:3080/login`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(customData),
+    }).then((res) => res.json()).then((data) =>{
+      setLoggedInUser(data)
+      history.push(from)
+    })
+  };
+  console.log(loggedInUser)
 
-    }
-    
-    return (
-        <div>
-             <div className="text-center pt-5">
-      <h1 className="pb-5">Login with google</h1>
-
-      <button onClick={handleGoogleSignIn}
-        type="button"
-        className="btn btn-outline-primary w-25 rounded-pill"
-      >
-        <img
-          className="align-content-start"
-          style={{ height: "20px" }}
-          src={google}
-          alt=""
-        />{" "}
-        Continue with Google{" "}
-      </button>
-
-      <p className="pt-3">
-        Do not have an account ?<Link to="/login">Creat an account</Link>
+  return (
+    <div className="text-center">
+      <div className=" d-flex justify-content-center text-center pt-5">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            className="form-control"
+            type="email"
+            {...register("email", { required: true })}
+            required
+            placeholder="email"
+          />
+          {errors.email && <span>This field is required</span>}
+          <br />
+          <input
+            className="form-control"
+            type="password"
+            {...register("password", { required: true })}
+            required
+            placeholder="Password"
+          />
+          {errors.password && <span>This field is required</span>}
+          <br />
+          <input type="submit" />
+        </form>
+      </div>
+      <p>
+        Don't have an account? <Link to="register">login here</Link>{" "}
       </p>
-    </div>            
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Login;
