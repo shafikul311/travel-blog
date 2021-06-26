@@ -6,27 +6,25 @@ import { useForm } from "react-hook-form";
 const BlogPost = () => {
     const [imageURL , setImageURL] = useState(null)
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+    const { register, handleSubmit,formState: { errors } } = useForm();
+    
+    const onSubmit = data => {
+    const blogData = {
+      name: data.name,
+      description: data.description,
+      image: imageURL,
+    };
+    console.log( blogData)
 
-//   const onSubmit = data => {
-//     const serviceData = {
-//       name: data.name,
-//       description: data.description,
-//       price: data.price,
-//       image: imageURL,
-//     };
-//     console.log(serviceData)
-
-//     // const url = `http://localhost:5080/addService`;
-//     // fetch(url, {
-//     //   method: "POST",
-//     //   headers: {
-//     //     "Content-type": "application/json",
-//     //   },
-//     //   body: JSON.stringify(serviceData),
-//     // }).then((res) => res.json());
-//   }
+    // const url = `http://localhost:3080/blog`;
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(serviceData),
+    // }).then((res) => res.json());
+  }
 
 
 

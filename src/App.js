@@ -11,6 +11,7 @@ import Delete from './Components/Delete/Delete';
 import Login from './Components/LoginManager/Login/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
+import MakeAdmin from './Components/Admin/MakeAdmin/MakeAdmin';
 
 
  export const UserContext = createContext();
@@ -22,28 +23,31 @@ function App() {
   return (
     <div className="App">
 
-<UserContext.Provider value={[loggedInUser ,setLoggedInUser]}>
-      <Router>
-        <Switch>
-          <Route  exact path="/">
-            <Home />
-          </Route>
-          <Route path="/admin">
-            <Admin />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/delete">
-            <Delete />
-          </Route>
-        </Switch>
-    </Router>
+    <UserContext.Provider value={[loggedInUser ,setLoggedInUser]}>
+          <Router>
+            <Switch>
+              <Route  exact path="/">
+                <Home />
+              </Route>
+              <Route path="/admin">
+                <Admin />
+              </Route>
+              <Route path="/makeAdmin">
+                <MakeAdmin />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/delete">
+                <Delete />
+              </Route>
+            </Switch>
+        </Router>
 
-    </UserContext.Provider>
+        </UserContext.Provider>
 
     </div>
   );
