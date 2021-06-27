@@ -10,7 +10,7 @@ const MakeAdmin = () => {
             email:data.email
         }
         console.log(data.email)
-        const url = `http://localhost:3080/admin`;
+        const url = `https://morning-meadow-74142.herokuapp.com/admin`;
         fetch(url, {
           method: "POST",
           headers: {

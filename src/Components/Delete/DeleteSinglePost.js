@@ -5,7 +5,7 @@ const DeleteSinglePost = (props) => {
     const {image, name, _id} = props.post
 
     const handleDelete =(id) =>{
-        fetch(`http://localhost:3080/delete/${id}`,{
+        fetch(`https://morning-meadow-74142.herokuapp.com/delete/${id}`,{
             method: 'DELETE'
         })
         .then(res =>res.json())

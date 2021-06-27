@@ -3,6 +3,7 @@ import "firebase/auth";
 import { useContext } from "react";
 import { UserContext } from "../../../App";
 import { useForm } from "react-hook-form";
+import NavBar from "../../NabBar/NavBar";
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -11,7 +12,6 @@ const Login = () => {
 
   let { from } = location.state || { from: { pathname: "/" } };
 
- 
   const {
     register,
     handleSubmit,
@@ -23,37 +23,43 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-   
 
-    const url = `http://localhost:3080/login`;
+    const url = `https://morning-meadow-74142.herokuapp.com/login`;
     fetch(url, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(customData),
-    }).then((res) => res.json()).then((data) =>{
-      setLoggedInUser(data)
-      history.push(from)
     })
+      .then((res) => res.json())
+      .then((data) => {
+        setLoggedInUser(data);
+        history.push(from);
+      });
   };
-  console.log(loggedInUser)
+  // console.log(loggedInUser);
 
   return (
     <div className="text-center">
+      <NavBar />
       <div className=" d-flex justify-content-center text-center pt-5">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="form-container container "
+        >
+          <h1 className="pb-5 pt-5 border-bottom">Login Now</h1>
           <input
-            className="form-control"
+            className="form-control "
             type="email"
             {...register("email", { required: true })}
             required
-            placeholder="email"
+            placeholder="Email"
           />
           {errors.email && <span>This field is required</span>}
           <br />
           <input
-            className="form-control"
+            className="form-control "
             type="password"
             {...register("password", { required: true })}
             required
@@ -61,7 +67,7 @@ const Login = () => {
           />
           {errors.password && <span>This field is required</span>}
           <br />
-          <input type="submit" />
+          <input type="submit" className="btn btn-primary" />
         </form>
       </div>
       <p>

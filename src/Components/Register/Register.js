@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import NavBar from '../NabBar/NavBar';
+import './Register.css'
 
 const Register = () => {
 
@@ -14,7 +16,7 @@ const Register = () => {
       };
       console.log(customData);
 
-      const url = `http://localhost:3080/users`;
+      const url = `https://morning-meadow-74142.herokuapp.com/users`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -22,28 +24,36 @@ const Register = () => {
       },
       body: JSON.stringify(customData),
     }).then((res) => res.json()
-    );
+    ).then((data) => {
+      alert("Registerd success")
+    })
 
     } 
     return (
+
+        <>
+           <NavBar />
+           <div className="justified-content-center text-center pt-5">
+          <form onSubmit={handleSubmit(onSubmit)} className="form-container container">
+            <h1 className="border-bottom pb-5">Register Now</h1>
+
+          <input className="form-control" type="text" {...register("name", { required: true, maxLength: 20 })} required placeholder="Name" />
+          <br />
+          <input className="form-control" type="email" {...register("email", { required: true })} required placeholder="Email" />
+          {errors.email && <span>This field is required</span>}
+          <br />
+          <input className="form-control" type="password" {...register("password", { required: true })} required placeholder="Password" />
+          {errors.password && <span>This field is required</span>}
+          <br />
+          <input type="submit" className="btn btn-primary" />
+          </form>
+          <p>already have an account <Link to="/login">Login now</Link> </p>
+          </div>
+        
+        </>
       
             
-          <div className="justified-content-center text-center pt-5">
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-
-        <input className="form-control w-50" type="text" {...register("name", { required: true, maxLength: 20 })} required placeholder="Name" />
-        <br />
-        <input className="form-control w-50" type="email" {...register("email", { required: true })} required placeholder="email" />
-        {errors.email && <span>This field is required</span>}
-        <br />
-        <input className="form-control w-50" type="password" {...register("password", { required: true })} required placeholder="Password" />
-        {errors.password && <span>This field is required</span>}
-        <br />
-        <input type="submit" />
-        </form>
-        <p>already have an account <Link to="/login">Login now</Link> </p>
-        </div>
+         
     );
 };
 

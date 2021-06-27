@@ -17,7 +17,7 @@ const BlogPost = () => {
     };
     console.log( blogData)
 
-    const url = `http://localhost:3080/post`;
+    const url = `https://morning-meadow-74142.herokuapp.com/post`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -51,23 +51,22 @@ const BlogPost = () => {
 
  
     return (
-        <div>
-            <h1>Post Here</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-
-            <input type="text" className="form-control" placeholder="Title" {...register("name")} required />
-            <br/>
+        <div className="p-3">
            
-            <textarea className="form-control" placeholder="Description" type="Textarea"  {...register("description", { required: true })} required > Description </textarea>
-            {errors.description && <span className="text-danger">This field is required</span>}
-            <br/>
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-light shadow p-5 border">
+            <h1>Post Here</h1>
 
-            <input onChange={handelImageSubmit} className="form-control" type="file" name="file" placeholder="file" required/>
-            <br/>
+            <input type="text" className="form-control m-2" placeholder="Title" {...register("name")} required />
+       
+           
+            <textarea className="form-control m-2" placeholder="Description" type="Textarea"  {...register("description", { required: true })} required > Description </textarea>
+            {errors.description && <span className="text-danger">This field is required</span>}
+          
+
+            <input onChange={handelImageSubmit} className="form-control m-2" type="file" name="file" placeholder="file" required/>
+          
             
-            <input className="btn-btn-primary" type="submit" />
-    
-            
+            <input className="btn btn-primary" type="submit"  />
             </form>
 
         </div>
