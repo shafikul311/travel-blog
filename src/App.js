@@ -17,6 +17,8 @@ import MakeAdmin from './Components/Admin/MakeAdmin/MakeAdmin';
 import PrivateRoute from './Components/LoginManager/PrivateRoute/PrivateRoute';
 import SingleBlogDetalis from './Components/RecentPost/SingleBlogDetalis';
 import Register from './Components/Register/Register';
+import NotAdmin from './Components/Admin/NotAdmin/NotAdmin';
+import BlogPostForm from './Components/BlogPost/BlogPostForm';
 
 
  export const UserContext = createContext();
@@ -34,9 +36,9 @@ function App() {
               <Route  exact path="/">
                 <Home />
               </Route>
-              <Route path="/admin">
+              <PrivateRoute path="/admin">
                 <Admin />
-              </Route>
+              </PrivateRoute>
               <Route path="/makeAdmin">
                 <MakeAdmin />
               </Route>
@@ -49,11 +51,20 @@ function App() {
               <Route path="/about">
                 <About />
               </Route>
+              <Route path="/blogPostForm">
+                <BlogPostForm />
+              </Route>
               <Route path="/delete">
+                <Delete />
+              </Route>
+              <Route path="/update">
                 <Delete />
               </Route>
               <Route path="/post/:id">
                 <SingleBlogDetalis/>
+              </Route>
+              <Route path="/notAdmin">
+                <NotAdmin />
               </Route>
             </Switch>
         </Router>

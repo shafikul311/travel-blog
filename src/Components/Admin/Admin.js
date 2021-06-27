@@ -1,5 +1,4 @@
 import React from 'react';
-import BlogPost from '../BlogPost/BlogPost';
 import SideBar from '../SideBar/SideBar';
 import './Admin.css'
 
@@ -11,7 +10,7 @@ const Admin = () => {
                 <SideBar/>
             </div>
             <div className="col-md-8">
-                <BlogPost/>
+                <h1>Welcome</h1>
             </div>
         </div>
         </>

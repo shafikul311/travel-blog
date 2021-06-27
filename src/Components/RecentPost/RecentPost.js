@@ -14,15 +14,15 @@ const RecentPost = () => {
        .then(res =>res.json())
        .then(data => setPostsBlog(data))
    },[])
-    console.log(postsBlog)
+    // console.log(postsBlog)
 
 
     return (
-        <div className="container recent__post">
+        <div className="container pt-5 pb-5 recent__post">
             <h1>RECENT POST</h1>
             <div>
                 {
-                    postsBlog.map(posts => <RecentPostDetails posts={posts}></RecentPostDetails>)
+                    postsBlog?.map(posts => <RecentPostDetails key={posts._id} posts={posts}></RecentPostDetails>)
 
                 }
            

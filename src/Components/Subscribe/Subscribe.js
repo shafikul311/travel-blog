@@ -6,7 +6,7 @@ const Subscribe = () => {
     return (
         <div className="container Subscribe__section">
            <h3>Subscribe For Latest Travel News</h3>
-            <div className="container">
+            <div className="container ">
               <>
                 <InputGroup className="mb-3 w-50 subscribe-form">
                   <FormControl
@@ -20,7 +20,7 @@ const Subscribe = () => {
                   <Button variant="outline-primary" id="button-addon2">
                     Subscribe
                   </Button>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, beatae?</p>
+                {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, beatae?</p> */}
                 </InputGroup>
               
               </>
