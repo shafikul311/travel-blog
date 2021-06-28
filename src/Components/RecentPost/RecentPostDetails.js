@@ -18,7 +18,7 @@ const RecentPostDetails = (props) => {
                     <div className="card-body">
                         <h5 className="card-title">{name}</h5>
                         <h5 className="card-title">Author: SHAFIKUL </h5>
-                        <p className="card-text"><small className="text-muted">{time.toString()}</small></p>
+                        <p className="card-text"><small className="text-muted">Post Date : {time.toString()}</small></p>
                     </div>
                     </div>
                 </div>

@@ -34,49 +34,49 @@ const SideBar = () => {
       <ul className="sideBar__option">
         {loggedInUser.isAdmin ? (
           <>
-            <Link to="/blogPostForm">
+            <Link className="side__bar__style"  to="/blogPostForm">
               {" "}
               <li className="blog-container d-flex">
                 {" "}
-                <AddCircleOutlineIcon /> <p>Post a Blog</p>
+                <AddCircleOutlineIcon /> <p className="ml-3">Post a Blog</p>
               </li>
             </Link>
-            <Link to="/delete">
+            <Link className="side__bar__style"  to="/delete">
               <li className="blog-container d-flex">
                 {" "}
-                <DeleteIcon /> <p>Delete Post</p>
+                <DeleteIcon /> <p className="ml-3">Delete Post</p>
               </li>
             </Link>
-            <Link to="/update">
+            <Link className="side__bar__style" to="/update">
               <li className="blog-container d-flex">
                 {" "}
-                <SystemUpdateAltIcon /> <p>Update Blog</p>
+                <SystemUpdateAltIcon /> <p className="ml-3">Update Blog</p>
               </li>
             </Link>
-            <Link to="/makeAdmin">
+            <Link className="side__bar__style"  to="/makeAdmin">
               {" "}
               <li className="blog-container d-flex">
                 {" "}
                 <SupervisorAccountIcon />
-                Make A New Admin
+               <p className="ml-3">Make A Admin</p>
               </li>
             </Link>
-            <Link to="/">
-              <li className="blog-container d-flex mt-2">
+            <Link className="side__bar__style"  to="/">
+              <li className="blog-container d-flex ">
                 {" "}
-                <HomeIcon /> <p>Go Home</p>{" "}
+                <HomeIcon /> <p className="ml-3">Go Home</p>{" "}
               </li>
             </Link>
           </>
         ) : (
           <>
-            <Link to="/notAdmin">
+            <Link className="side__bar__style" to="/notAdmin">
               <li className="blog-container d-flex">
                 {" "}
                 <SupervisorAccountIcon />{" "}
               </li>
             </Link>
-            <Link to="/">
+            <Link className="side__bar__style" to="/">
               <li className="blog-container d-flex">
                 {" "}
                 <HomeIcon /> <p>Go Home</p>{" "}

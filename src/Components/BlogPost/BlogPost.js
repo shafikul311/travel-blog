@@ -24,8 +24,10 @@ const BlogPost = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify(blogData),
-    }).then((res) => res.json()
-    );
+    }).then((res) => res.json().then((data) =>{
+      alert("Post Success")
+    })
+    )
    
   }
 

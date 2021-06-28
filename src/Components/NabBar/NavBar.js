@@ -18,7 +18,7 @@ const NavBar = () => {
                     <Link to="/admin"> <p className="nav-link fs-3">ADMIN</p></Link>
                 </div>
             </div>
-            </div>
+        </div>
       </nav>
     );
 };

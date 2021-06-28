@@ -23,9 +23,11 @@ const RecentPost = () => {
       <h1>RECENT POST</h1>
 
       <div>
-        {isLoading && (
-          <Spinner className="text-center" animation="grow" variant="dark" />
-        )}
+        {
+          isLoading && (
+            <Spinner className="text-center" animation="grow" variant="dark" />
+          )
+        }
 
         {postsBlog?.map((posts) => (
           <RecentPostDetails key={posts._id} posts={posts}></RecentPostDetails>

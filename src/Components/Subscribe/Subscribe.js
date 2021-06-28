@@ -6,9 +6,9 @@ const Subscribe = () => {
     return (
         <div className="container Subscribe__section">
            <h3>Subscribe For Latest Travel News</h3>
-            <div className="container ">
+            <div className="container">
               <>
-                <InputGroup className="mb-3 w-50 subscribe-form">
+                <InputGroup className="mb-3 w-75 p-5 subscribe-form">
                   <FormControl
                     
                     placeholder="Email"
