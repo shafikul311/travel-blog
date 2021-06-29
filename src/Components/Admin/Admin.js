@@ -9,8 +9,8 @@ const Admin = () => {
             <div className="col-md-4">
                 <SideBar/>
             </div>
-            <div className="col-md-8">
-                <h1>Welcome</h1>
+            <div className="col-md-8 pt-5">
+                <h1>Welcome To Admin Dashboard</h1>
             </div>
         </div>
         </>

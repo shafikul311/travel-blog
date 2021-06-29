@@ -25,6 +25,20 @@ const DeleteBlog = () => {
             </tr>
           </thead>
           <tbody>
+
+            { 
+          
+          postsBlog.length === 0 && <div className="text-center">  
+                    Loading
+
+                    <div className="spinner-grow text-danger" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                   </div>
+                    
+                </div> 
+                }
+
+
             {postsBlog.map((post) => (
               <DeleteSinglePost key={post._id} post={post}></DeleteSinglePost>
             ))}

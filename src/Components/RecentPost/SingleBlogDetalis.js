@@ -10,27 +10,32 @@ const SingleBlogDetalis = () => {
   const { id } = useParams();
 
   const [postsBlog, setPostsBlog] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const url = `https://morning-meadow-74142.herokuapp.com/post/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPostsBlog(data));
-    setIsLoading(false);
   }, [id]);
-  console.log(postsBlog);
+
+  // console.log(postsBlog);
 
   return (
     <div>
       <>
         <NavBar />
-        {isLoading && (
-          <div>
-            {" "}
-            <Spinner className="text-center" animation="grow" variant="dark" />
-          </div>
-        )}
+
+            {
+
+                postsBlog.length === 0 && (
+                  <div className="text-center pt-5">
+                    Loading
+                    <div className="spinner-grow text-danger" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+            )}
+
         {
           <div className="container">
             <Card className="border-0 pt-5 pb-5">

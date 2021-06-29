@@ -39,7 +39,7 @@ const BlogPost = () => {
     imageData.set("key", "eaeada892240c3e78235aac2d3a8e400");
     imageData.append("image", event.target.files[0]);
 
-    axios
+  axios
       .post("https://api.imgbb.com/1/upload", imageData)
       .then(function (response) {
         console.log(response.data.data.display_url)
@@ -61,7 +61,7 @@ const BlogPost = () => {
             <input type="text" className="form-control m-2" placeholder="Title" {...register("name")} required />
        
            
-            <textarea className="form-control m-2" placeholder="Description" type="Textarea"  {...register("description", { required: true })} required > Description </textarea>
+            <textarea className="form-control m-2" placeholder="Description" {...register("description", { required: true })} required > Description </textarea>
             {errors.description && <span className="text-danger">This field is required</span>}
           
 
