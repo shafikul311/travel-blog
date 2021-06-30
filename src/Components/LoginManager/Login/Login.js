@@ -49,12 +49,15 @@ const Login = () => {
           className="form-container container "
         >
           <h1 className="pb-5 pt-5 border-bottom">Login Now</h1>
+          <h3> Test Email use IT : test@test.com </h3>
+          <h2> Test password use IT : #2021dev</h2>
+
           <input
             className="form-control "
             type="email"
             {...register("email", { required: true })}
             required
-            placeholder="Email"
+            placeholder="test@test.com"
           />
           {errors.email && <span>This field is required</span>}
           <br />
@@ -63,7 +66,7 @@ const Login = () => {
             type="password"
             {...register("password", { required: true })}
             required
-            placeholder="Password"
+            placeholder="#2021dev"
           />
           {errors.password && <span>This field is required</span>}
           <br />

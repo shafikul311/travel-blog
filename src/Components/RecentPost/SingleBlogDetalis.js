@@ -24,7 +24,6 @@ const SingleBlogDetalis = () => {
     <div>
       <>
         <NavBar />
-
             {
 
                 postsBlog.length === 0 && (
